@@ -4,37 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ARSX</title>
+<title>ARSX | Official Website</title>
 
 <style>
+
+/* GENERAL */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background: #ffffff;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Date */
-.date {
+body {
+    background: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+
+.header {
     position: absolute;
     top: 30px;
     left: 30px;
+    right: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 10;
+}
+
+.date {
     font-size: 12px;
     letter-spacing: 1px;
     color: #777;
-    font-weight: 500;
 }
 
-/* Main Logo */
+.owner {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #222;
+}
+
+/* HERO SECTION */
+
+.hero {
+    height: 100vh;
+    min-height: 550px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
 .container {
     text-align: center;
 }
@@ -46,14 +78,15 @@ body {
 
     background: linear-gradient(
         145deg,
-        #000000 20%,
-        #555555 40%,
-        #000000 55%,
-        #777777 65%,
-        #000000 80%
+        #000 20%,
+        #555 40%,
+        #000 55%,
+        #777 65%,
+        #000 80%
     );
 
     background-size: 200% auto;
+
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -75,73 +108,454 @@ body {
     }
 }
 
-/* Coming Soon */
+/* COMING SOON */
+
 .coming {
     margin-top: 22px;
+
     font-size: 13px;
     letter-spacing: 6px;
+
     color: #222;
-    font-weight: 400;
 }
 
-/* Footer */
 .footer {
     margin-top: 16px;
+
     font-size: 11px;
     letter-spacing: 3px;
+
     color: #999;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-    .date {
+/* SCROLL INDICATOR */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    color: #999;
+
+    animation: scrollMove 2s infinite;
+}
+
+@keyframes scrollMove {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 10px);
+    }
+}
+
+/* ABOUT SECTION */
+
+.about {
+    min-height: 75vh;
+
+    padding: 100px 25px;
+
+    border-top: 1px solid #eee;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.section-title {
+    font-size: 25px;
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+.section-text {
+    font-size: 13px;
+
+    color: #888;
+
+    letter-spacing: 1px;
+    text-align: center;
+
+    line-height: 2;
+
+    max-width: 500px;
+}
+
+/* TELEGRAM BUTTON */
+
+.telegram {
+    margin-top: 65px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+    color: #111;
+
+    border: 1px solid #ddd;
+
+    padding: 13px 25px;
+
+    transition: 0.3s;
+}
+
+.telegram:hover {
+    background: #000;
+    color: #fff;
+
+    border-color: #000;
+
+    transform: translateY(-3px);
+}
+
+.telegram svg {
+    width: 21px;
+    height: 21px;
+
+    fill: currentColor;
+}
+
+.telegram span {
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+/* SPIDERS */
+
+.spider {
+    position: fixed;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    width: 22px;
+    height: 25px;
+}
+
+.spider .body {
+    position: absolute;
+
+    width: 9px;
+    height: 12px;
+
+    background: #111;
+
+    border-radius: 50%;
+
+    left: 7px;
+    top: 7px;
+}
+
+.spider .head {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: #111;
+
+    border-radius: 50%;
+
+    left: 8px;
+    top: 1px;
+}
+
+.spider .legs {
+    position: absolute;
+
+    top: 9px;
+    left: 0;
+
+    width: 22px;
+    height: 14px;
+
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+}
+
+/* FIRST SPIDER */
+
+.spider-one {
+    top: 45%;
+    left: -30px;
+
+    animation: crawl 24s linear infinite;
+}
+
+@keyframes crawl {
+
+    0% {
+        left: -30px;
+        top: 45%;
+    }
+
+    25% {
+        left: 30%;
+        top: 43%;
+    }
+
+    50% {
+        left: 70%;
+        top: 48%;
+    }
+
+    75% {
+        left: 90%;
+        top: 40%;
+    }
+
+    100% {
+        left: 110%;
+        top: 45%;
+    }
+}
+
+/* SECOND SPIDER */
+
+.spider-two {
+    top: -35px;
+    right: 15%;
+
+    animation: hanging 8s ease-in-out infinite;
+}
+
+.spider-two::before {
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+    height: 40px;
+
+    background: #222;
+
+    left: 11px;
+    bottom: 20px;
+}
+
+@keyframes hanging {
+
+    0%, 100% {
+        top: -35px;
+    }
+
+    50% {
+        top: 90px;
+    }
+}
+
+/* BOTTOM */
+
+.bottom {
+    text-align: center;
+
+    padding: 25px;
+
+    border-top: 1px solid #eee;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    color: #aaa;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 600px) {
+
+    .header {
         top: 22px;
         left: 20px;
+        right: 20px;
     }
 
     .logo {
         letter-spacing: -4px;
     }
+
+    .section-title {
+        font-size: 21px;
+    }
+
+    .section-text {
+        font-size: 12px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="date" id="date"></div>
+<!-- HEADER -->
 
-<div class="container">
+<header class="header">
 
-    <div class="logo">
-        A<span class="small">rs</span>X
+    <div class="date" id="date"></div>
+
+    <div class="owner">
+        Arshia Ajankan
     </div>
 
-    <div class="coming">
-        COMING SOON
-    </div>
+</header>
 
-    <div class="footer">
-        ® &nbsp; 2026
-    </div>
+
+<!-- SPIDERS -->
+
+<div class="spider spider-one">
+
+    <div class="head"></div>
+
+    <div class="body"></div>
+
+    <div class="legs"></div>
 
 </div>
 
+
+<div class="spider spider-two">
+
+    <div class="head"></div>
+
+    <div class="body"></div>
+
+    <div class="legs"></div>
+
+</div>
+
+
+<!-- MAIN PAGE -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="logo">
+
+            A<span class="small">rs</span>X
+
+        </div>
+
+        <div class="coming">
+
+            COMING SOON
+
+        </div>
+
+        <div class="footer">
+
+            ™ &nbsp; 2026
+
+        </div>
+
+    </div>
+
+    <div class="scroll-indicator">
+
+        SCROLL DOWN ↓
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+
+<section class="about">
+
+    <h2 class="section-title">
+
+        ABOUT
+
+    </h2>
+
+    <p class="section-text">
+
+        Welcome to ARSX.<br>
+
+        Something new is coming soon.<br>
+
+        Stay connected.
+
+    </p>
+
+
+    <!-- TELEGRAM -->
+
+    <a class="telegram"
+
+       href="https://t.me/Ars_teamX"
+
+       target="_blank"
+
+       rel="noopener noreferrer">
+
+        <svg viewBox="0 0 24 24">
+
+            <path d="M22 2L2 10.5L9 13L18 6L11 15L11 21L15 17L19 20L22 2Z"/>
+
+        </svg>
+
+        <span>TELEGRAM</span>
+
+    </a>
+
+</section>
+
+
+<!-- BOTTOM -->
+
+<div class="bottom">
+
+    ARSX © 2026
+
+</div>
+
+
+<!-- DATE SCRIPT -->
+
 <script>
+
 function updateDate() {
 
     const today = new Date();
 
     const options = {
+
         day: '2-digit',
+
         month: 'long',
+
         year: 'numeric'
+
     };
 
     document.getElementById("date").innerText =
+
         today.toLocaleDateString('en-US', options);
+
 }
 
 updateDate();
+
 </script>
 
 </body>
