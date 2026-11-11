@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ARSX</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Date */
+.date {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #777;
+    font-weight: 500;
+}
+
+/* Main Logo */
+.container {
+    text-align: center;
+}
+
+.logo {
+    font-size: clamp(65px, 15vw, 125px);
+    font-weight: 900;
+    letter-spacing: -7px;
+
+    background: linear-gradient(
+        145deg,
+        #000000 20%,
+        #555555 40%,
+        #000000 55%,
+        #777777 65%,
+        #000000 80%
+    );
+
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    animation: shine 5s linear infinite;
+
+    filter: drop-shadow(
+        0px 5px 5px rgba(0,0,0,0.15)
+    );
+}
+
+.logo .small {
+    font-size: 0.75em;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Coming Soon */
+.coming {
+    margin-top: 22px;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: #222;
+    font-weight: 400;
+}
+
+/* Footer */
+.footer {
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .date {
+        top: 22px;
+        left: 20px;
+    }
+
+    .logo {
+        letter-spacing: -4px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="date" id="date"></div>
+
+<div class="container">
+
+    <div class="logo">
+        A<span class="small">rs</span>X
+    </div>
+
+    <div class="coming">
+        COMING SOON
+    </div>
+
+    <div class="footer">
+        ® &nbsp; 2026
+    </div>
+
+</div>
+
+<script>
+function updateDate() {
+
+    const today = new Date();
+
+    const options = {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    };
+
+    document.getElementById("date").innerText =
+        today.toLocaleDateString('en-US', options);
+}
+
+updateDate();
+</script>
+
+</body>
+</html>
